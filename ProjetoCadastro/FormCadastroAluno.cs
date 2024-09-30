@@ -18,6 +18,7 @@ namespace ProjetoCadastro
         string alunoFileName = "alunos.txt";
         bool isAlteracao = false;
         int indexSelecionado = 0;
+        int x;
 
         public FormCadastroAluno()
         {
