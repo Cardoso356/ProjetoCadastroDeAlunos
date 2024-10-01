@@ -43,9 +43,14 @@
             txtNome = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtMatricula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tabPageConsulta = new TabPage();
+            botaoDeNovoCadastro = new ReaLTaiizor.Controls.MaterialButton();
+            botaoDeEditar = new ReaLTaiizor.Controls.MaterialButton();
+            botaoDeExcluir = new ReaLTaiizor.Controls.MaterialButton();
+            mlvAlunos = new ReaLTaiizor.Controls.MaterialListView();
             imageList1 = new ImageList(components);
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
+            tabPageConsulta.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlCadastro
@@ -127,6 +132,7 @@
             btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnCancelar.UseAccentColor = false;
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtDataNascimento
             // 
@@ -384,6 +390,10 @@
             // 
             // tabPageConsulta
             // 
+            tabPageConsulta.Controls.Add(botaoDeNovoCadastro);
+            tabPageConsulta.Controls.Add(botaoDeEditar);
+            tabPageConsulta.Controls.Add(botaoDeExcluir);
+            tabPageConsulta.Controls.Add(mlvAlunos);
             tabPageConsulta.ImageKey = "search.png";
             tabPageConsulta.Location = new Point(4, 31);
             tabPageConsulta.Name = "tabPageConsulta";
@@ -393,6 +403,89 @@
             tabPageConsulta.Text = "Consulta";
             tabPageConsulta.UseVisualStyleBackColor = true;
             tabPageConsulta.Click += tabPage2_Click;
+            tabPageConsulta.Enter += tabPageConsulta_Enter;
+            // 
+            // botaoDeNovoCadastro
+            // 
+            botaoDeNovoCadastro.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            botaoDeNovoCadastro.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            botaoDeNovoCadastro.Depth = 0;
+            botaoDeNovoCadastro.HighEmphasis = true;
+            botaoDeNovoCadastro.Icon = null;
+            botaoDeNovoCadastro.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            botaoDeNovoCadastro.Location = new Point(389, 469);
+            botaoDeNovoCadastro.Margin = new Padding(4, 6, 4, 6);
+            botaoDeNovoCadastro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            botaoDeNovoCadastro.Name = "botaoDeNovoCadastro";
+            botaoDeNovoCadastro.NoAccentTextColor = Color.Empty;
+            botaoDeNovoCadastro.Size = new Size(64, 36);
+            botaoDeNovoCadastro.TabIndex = 3;
+            botaoDeNovoCadastro.Text = "Novo";
+            botaoDeNovoCadastro.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            botaoDeNovoCadastro.UseAccentColor = false;
+            botaoDeNovoCadastro.UseVisualStyleBackColor = true;
+            botaoDeNovoCadastro.Click += botaoDeNovoCadastro_Click;
+            // 
+            // botaoDeEditar
+            // 
+            botaoDeEditar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            botaoDeEditar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            botaoDeEditar.Depth = 0;
+            botaoDeEditar.HighEmphasis = true;
+            botaoDeEditar.Icon = null;
+            botaoDeEditar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            botaoDeEditar.Location = new Point(484, 469);
+            botaoDeEditar.Margin = new Padding(4, 6, 4, 6);
+            botaoDeEditar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            botaoDeEditar.Name = "botaoDeEditar";
+            botaoDeEditar.NoAccentTextColor = Color.Empty;
+            botaoDeEditar.Size = new Size(71, 36);
+            botaoDeEditar.TabIndex = 2;
+            botaoDeEditar.Text = "Editar";
+            botaoDeEditar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            botaoDeEditar.UseAccentColor = false;
+            botaoDeEditar.UseVisualStyleBackColor = true;
+            botaoDeEditar.Click += botaoDeEditar_Click;
+            // 
+            // botaoDeExcluir
+            // 
+            botaoDeExcluir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            botaoDeExcluir.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            botaoDeExcluir.Depth = 0;
+            botaoDeExcluir.HighEmphasis = true;
+            botaoDeExcluir.Icon = null;
+            botaoDeExcluir.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            botaoDeExcluir.Location = new Point(585, 469);
+            botaoDeExcluir.Margin = new Padding(4, 6, 4, 6);
+            botaoDeExcluir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            botaoDeExcluir.Name = "botaoDeExcluir";
+            botaoDeExcluir.NoAccentTextColor = Color.Empty;
+            botaoDeExcluir.Size = new Size(80, 36);
+            botaoDeExcluir.TabIndex = 1;
+            botaoDeExcluir.Text = "Excluir";
+            botaoDeExcluir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            botaoDeExcluir.UseAccentColor = false;
+            botaoDeExcluir.UseVisualStyleBackColor = true;
+            botaoDeExcluir.Click += botaoDeExcluir_Click;
+            // 
+            // mlvAlunos
+            // 
+            mlvAlunos.AutoSizeTable = false;
+            mlvAlunos.BackColor = Color.FromArgb(255, 255, 255);
+            mlvAlunos.BorderStyle = BorderStyle.None;
+            mlvAlunos.Depth = 0;
+            mlvAlunos.FullRowSelect = true;
+            mlvAlunos.Location = new Point(3, 3);
+            mlvAlunos.MinimumSize = new Size(200, 100);
+            mlvAlunos.MouseLocation = new Point(-1, -1);
+            mlvAlunos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            mlvAlunos.Name = "mlvAlunos";
+            mlvAlunos.OwnerDraw = true;
+            mlvAlunos.Size = new Size(751, 453);
+            mlvAlunos.TabIndex = 0;
+            mlvAlunos.UseCompatibleStateImageBehavior = false;
+            mlvAlunos.View = View.Details;
+            mlvAlunos.MouseDoubleClick += mlvAlunos_MouseDoubleClick;
             // 
             // imageList1
             // 
@@ -416,6 +509,8 @@
             Load += FormCadastroAluno_Load;
             tabControlCadastro.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
+            tabPageConsulta.ResumeLayout(false);
+            tabPageConsulta.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -435,5 +530,9 @@
         private ReaLTaiizor.Controls.MaterialMaskedTextBox txtDataNascimento;
         private ReaLTaiizor.Controls.MaterialButton btnSalvar;
         private ReaLTaiizor.Controls.MaterialButton btnCancelar;
+        private ReaLTaiizor.Controls.MaterialListView mlvAlunos;
+        private ReaLTaiizor.Controls.MaterialButton botaoDeNovoCadastro;
+        private ReaLTaiizor.Controls.MaterialButton botaoDeEditar;
+        private ReaLTaiizor.Controls.MaterialButton botaoDeExcluir;
     }
 }
