@@ -19,10 +19,17 @@ namespace ProjetoCadastro
 
         public void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(e.CloseReason == CloseReason.ApplicationExitCall)
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
             {
                 e.Cancel = true;
             }
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCadastroDeCursos formCurso = new FormCadastroDeCursos();
+            formCurso.MdiParent = this;
+            formCurso.Show();
         }
     }
 }

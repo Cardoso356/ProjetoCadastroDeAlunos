@@ -32,6 +32,7 @@
             menuStrip1 = new MenuStrip();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
             alunosToolStripMenuItem = new ToolStripMenuItem();
+            cursosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { alunosToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { alunosToolStripMenuItem, cursosToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(88, 24);
             cadastroToolStripMenuItem.Text = "Cadastros";
@@ -58,6 +59,13 @@
             alunosToolStripMenuItem.Size = new Size(224, 26);
             alunosToolStripMenuItem.Text = "Alunos";
             alunosToolStripMenuItem.Click += alunosToolStripMenuItem_Click;
+            // 
+            // cursosToolStripMenuItem
+            // 
+            cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
+            cursosToolStripMenuItem.Size = new Size(224, 26);
+            cursosToolStripMenuItem.Text = "Cursos";
+            cursosToolStripMenuItem.Click += cursosToolStripMenuItem_Click;
             // 
             // FormPrincipal
             // 
@@ -73,7 +81,7 @@
             Name = "FormPrincipal";
             Text = "IFSP - Sistema de Gerenciamento Acadêmico";
             WindowState = FormWindowState.Maximized;
-            FormClosing += this.FormPrincipal_FormClosing;
+            FormClosing += FormPrincipal_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -85,5 +93,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem alunosToolStripMenuItem;
+        private ToolStripMenuItem cursosToolStripMenuItem;
     }
 }
