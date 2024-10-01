@@ -207,7 +207,7 @@ namespace ProjetoCadastro
             else
             {
                 MessageBox.Show("Selecione algum aluno!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                
 
             }
 
