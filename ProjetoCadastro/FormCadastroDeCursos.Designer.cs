@@ -90,8 +90,8 @@
             BotaoSalvarCurso.HighEmphasis = true;
             BotaoSalvarCurso.Icon = null;
             BotaoSalvarCurso.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            BotaoSalvarCurso.Location = new Point(660, 350);
-            BotaoSalvarCurso.Margin = new Padding(4, 4, 4, 4);
+            BotaoSalvarCurso.Location = new Point(657, 340);
+            BotaoSalvarCurso.Margin = new Padding(4);
             BotaoSalvarCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             BotaoSalvarCurso.Name = "BotaoSalvarCurso";
             BotaoSalvarCurso.NoAccentTextColor = Color.Empty;
@@ -111,8 +111,8 @@
             BotaoCancelarCurso.HighEmphasis = true;
             BotaoCancelarCurso.Icon = null;
             BotaoCancelarCurso.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            BotaoCancelarCurso.Location = new Point(523, 350);
-            BotaoCancelarCurso.Margin = new Padding(4, 4, 4, 4);
+            BotaoCancelarCurso.Location = new Point(521, 340);
+            BotaoCancelarCurso.Margin = new Padding(4);
             BotaoCancelarCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             BotaoCancelarCurso.Name = "BotaoCancelarCurso";
             BotaoCancelarCurso.NoAccentTextColor = Color.Empty;
@@ -307,7 +307,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(791, 472);
+            ClientSize = new Size(791, 497);
             Controls.Add(tabControlCadastroCursos);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tabControlCadastroCursos;
