@@ -41,9 +41,14 @@
             CampoNomeCurso = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             CampoCodigoCurso = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tabPage2 = new TabPage();
+            BotaoDeNovoCurso = new ReaLTaiizor.Controls.MaterialButton();
+            BotaoDeEditarCurso = new ReaLTaiizor.Controls.MaterialButton();
+            BotaoDeExcluirCurso = new ReaLTaiizor.Controls.MaterialButton();
+            mlvCursos = new ReaLTaiizor.Controls.MaterialListView();
             imageList1 = new ImageList(components);
             tabControlCadastroCursos.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlCadastroCursos
@@ -51,14 +56,15 @@
             tabControlCadastroCursos.Controls.Add(tabPage1);
             tabControlCadastroCursos.Controls.Add(tabPage2);
             tabControlCadastroCursos.Depth = 0;
+            tabControlCadastroCursos.Dock = DockStyle.Fill;
             tabControlCadastroCursos.ImageList = imageList1;
-            tabControlCadastroCursos.Location = new Point(5, 50);
+            tabControlCadastroCursos.Location = new Point(3, 48);
             tabControlCadastroCursos.Margin = new Padding(3, 2, 3, 2);
             tabControlCadastroCursos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             tabControlCadastroCursos.Multiline = true;
             tabControlCadastroCursos.Name = "tabControlCadastroCursos";
             tabControlCadastroCursos.SelectedIndex = 0;
-            tabControlCadastroCursos.Size = new Size(780, 417);
+            tabControlCadastroCursos.Size = new Size(785, 431);
             tabControlCadastroCursos.TabIndex = 0;
             // 
             // tabPage1
@@ -76,7 +82,7 @@
             tabPage1.Margin = new Padding(3, 2, 3, 2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3, 2, 3, 2);
-            tabPage1.Size = new Size(772, 382);
+            tabPage1.Size = new Size(777, 396);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Cadastro";
             tabPage1.UseVisualStyleBackColor = true;
@@ -90,7 +96,7 @@
             BotaoSalvarCurso.HighEmphasis = true;
             BotaoSalvarCurso.Icon = null;
             BotaoSalvarCurso.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            BotaoSalvarCurso.Location = new Point(657, 340);
+            BotaoSalvarCurso.Location = new Point(582, 350);
             BotaoSalvarCurso.Margin = new Padding(4);
             BotaoSalvarCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             BotaoSalvarCurso.Name = "BotaoSalvarCurso";
@@ -111,7 +117,7 @@
             BotaoCancelarCurso.HighEmphasis = true;
             BotaoCancelarCurso.Icon = null;
             BotaoCancelarCurso.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            BotaoCancelarCurso.Location = new Point(521, 340);
+            BotaoCancelarCurso.Location = new Point(456, 350);
             BotaoCancelarCurso.Margin = new Padding(4);
             BotaoCancelarCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             BotaoCancelarCurso.Name = "BotaoCancelarCurso";
@@ -122,6 +128,7 @@
             BotaoCancelarCurso.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             BotaoCancelarCurso.UseAccentColor = false;
             BotaoCancelarCurso.UseVisualStyleBackColor = true;
+            BotaoCancelarCurso.Click += BotaoCancelarCurso_Click;
             // 
             // CampoDeAreaDoCurso
             // 
@@ -138,7 +145,8 @@
             CampoDeAreaDoCurso.Hint = "Área";
             CampoDeAreaDoCurso.IntegralHeight = false;
             CampoDeAreaDoCurso.ItemHeight = 43;
-            CampoDeAreaDoCurso.Location = new Point(85, 318);
+            CampoDeAreaDoCurso.Items.AddRange(new object[] { "Licenciatura", "Informática", "Indústria", "Administração" });
+            CampoDeAreaDoCurso.Location = new Point(6, 285);
             CampoDeAreaDoCurso.Margin = new Padding(3, 2, 3, 2);
             CampoDeAreaDoCurso.MaxDropDownItems = 4;
             CampoDeAreaDoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -162,7 +170,8 @@
             CampoDePeriodoDoCurso.Hint = "Período";
             CampoDePeriodoDoCurso.IntegralHeight = false;
             CampoDePeriodoDoCurso.ItemHeight = 43;
-            CampoDePeriodoDoCurso.Location = new Point(85, 193);
+            CampoDePeriodoDoCurso.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno", "Integral" });
+            CampoDePeriodoDoCurso.Location = new Point(6, 179);
             CampoDePeriodoDoCurso.Margin = new Padding(3, 2, 3, 2);
             CampoDePeriodoDoCurso.MaxDropDownItems = 4;
             CampoDePeriodoDoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -186,7 +195,8 @@
             CampoDeDuracaoDoCurso.Hint = "Duração do Semestre";
             CampoDeDuracaoDoCurso.IntegralHeight = false;
             CampoDeDuracaoDoCurso.ItemHeight = 43;
-            CampoDeDuracaoDoCurso.Location = new Point(85, 255);
+            CampoDeDuracaoDoCurso.Items.AddRange(new object[] { "1 Semestre", "2 Semestres", "3 Semestres", "4 Semestres", "5 Semestres", "6 Semestres", "7 Semestres", "8 Semestres", "9 Semestres", "10 Semestres" });
+            CampoDeDuracaoDoCurso.Location = new Point(6, 232);
             CampoDeDuracaoDoCurso.Margin = new Padding(3, 2, 3, 2);
             CampoDeDuracaoDoCurso.MaxDropDownItems = 4;
             CampoDeDuracaoDoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -210,7 +220,8 @@
             CampoDeNivelDoCurso.Hint = "Nível";
             CampoDeNivelDoCurso.IntegralHeight = false;
             CampoDeNivelDoCurso.ItemHeight = 43;
-            CampoDeNivelDoCurso.Location = new Point(85, 130);
+            CampoDeNivelDoCurso.Items.AddRange(new object[] { "Técnico", "Superior" });
+            CampoDeNivelDoCurso.Location = new Point(6, 126);
             CampoDeNivelDoCurso.Margin = new Padding(3, 2, 3, 2);
             CampoDeNivelDoCurso.MaxDropDownItems = 4;
             CampoDeNivelDoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -231,7 +242,7 @@
             CampoNomeCurso.HideSelection = true;
             CampoNomeCurso.Hint = "Nome";
             CampoNomeCurso.LeadingIcon = null;
-            CampoNomeCurso.Location = new Point(85, 74);
+            CampoNomeCurso.Location = new Point(6, 74);
             CampoNomeCurso.Margin = new Padding(3, 2, 3, 2);
             CampoNomeCurso.MaxLength = 32767;
             CampoNomeCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -263,7 +274,7 @@
             CampoCodigoCurso.HideSelection = true;
             CampoCodigoCurso.Hint = "Código do Curso";
             CampoCodigoCurso.LeadingIcon = null;
-            CampoCodigoCurso.Location = new Point(85, 23);
+            CampoCodigoCurso.Location = new Point(6, 22);
             CampoCodigoCurso.Margin = new Padding(3, 2, 3, 2);
             CampoCodigoCurso.MaxLength = 32767;
             CampoCodigoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -285,15 +296,102 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(BotaoDeNovoCurso);
+            tabPage2.Controls.Add(BotaoDeEditarCurso);
+            tabPage2.Controls.Add(BotaoDeExcluirCurso);
+            tabPage2.Controls.Add(mlvCursos);
             tabPage2.ImageKey = "ImagemLupa.png";
             tabPage2.Location = new Point(4, 31);
             tabPage2.Margin = new Padding(3, 2, 3, 2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3, 2, 3, 2);
-            tabPage2.Size = new Size(772, 382);
+            tabPage2.Size = new Size(777, 396);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Consulta";
             tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Enter += tabPage2_Enter;
+            // 
+            // BotaoDeNovoCurso
+            // 
+            BotaoDeNovoCurso.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BotaoDeNovoCurso.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            BotaoDeNovoCurso.Depth = 0;
+            BotaoDeNovoCurso.HighEmphasis = true;
+            BotaoDeNovoCurso.Icon = null;
+            BotaoDeNovoCurso.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            BotaoDeNovoCurso.Location = new Point(405, 340);
+            BotaoDeNovoCurso.Margin = new Padding(4, 6, 4, 6);
+            BotaoDeNovoCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            BotaoDeNovoCurso.Name = "BotaoDeNovoCurso";
+            BotaoDeNovoCurso.NoAccentTextColor = Color.Empty;
+            BotaoDeNovoCurso.Size = new Size(64, 36);
+            BotaoDeNovoCurso.TabIndex = 3;
+            BotaoDeNovoCurso.Text = "Novo";
+            BotaoDeNovoCurso.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            BotaoDeNovoCurso.UseAccentColor = false;
+            BotaoDeNovoCurso.UseVisualStyleBackColor = true;
+            BotaoDeNovoCurso.Click += BotaoDeNovoCurso_Click;
+            // 
+            // BotaoDeEditarCurso
+            // 
+            BotaoDeEditarCurso.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BotaoDeEditarCurso.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            BotaoDeEditarCurso.Depth = 0;
+            BotaoDeEditarCurso.HighEmphasis = true;
+            BotaoDeEditarCurso.Icon = null;
+            BotaoDeEditarCurso.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            BotaoDeEditarCurso.Location = new Point(490, 340);
+            BotaoDeEditarCurso.Margin = new Padding(4, 6, 4, 6);
+            BotaoDeEditarCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            BotaoDeEditarCurso.Name = "BotaoDeEditarCurso";
+            BotaoDeEditarCurso.NoAccentTextColor = Color.Empty;
+            BotaoDeEditarCurso.Size = new Size(71, 36);
+            BotaoDeEditarCurso.TabIndex = 2;
+            BotaoDeEditarCurso.Text = "Editar";
+            BotaoDeEditarCurso.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            BotaoDeEditarCurso.UseAccentColor = false;
+            BotaoDeEditarCurso.UseVisualStyleBackColor = true;
+            BotaoDeEditarCurso.Click += BotaoDeEditarCurso_Click;
+            // 
+            // BotaoDeExcluirCurso
+            // 
+            BotaoDeExcluirCurso.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BotaoDeExcluirCurso.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            BotaoDeExcluirCurso.Depth = 0;
+            BotaoDeExcluirCurso.HighEmphasis = true;
+            BotaoDeExcluirCurso.Icon = null;
+            BotaoDeExcluirCurso.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            BotaoDeExcluirCurso.Location = new Point(581, 340);
+            BotaoDeExcluirCurso.Margin = new Padding(4, 6, 4, 6);
+            BotaoDeExcluirCurso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            BotaoDeExcluirCurso.Name = "BotaoDeExcluirCurso";
+            BotaoDeExcluirCurso.NoAccentTextColor = Color.Empty;
+            BotaoDeExcluirCurso.Size = new Size(80, 36);
+            BotaoDeExcluirCurso.TabIndex = 1;
+            BotaoDeExcluirCurso.Text = "Excluir";
+            BotaoDeExcluirCurso.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            BotaoDeExcluirCurso.UseAccentColor = false;
+            BotaoDeExcluirCurso.UseVisualStyleBackColor = true;
+            BotaoDeExcluirCurso.Click += BotaoDeExcluirCurso_Click;
+            // 
+            // mlvCursos
+            // 
+            mlvCursos.AutoSizeTable = false;
+            mlvCursos.BackColor = Color.FromArgb(255, 255, 255);
+            mlvCursos.BorderStyle = BorderStyle.None;
+            mlvCursos.Depth = 0;
+            mlvCursos.FullRowSelect = true;
+            mlvCursos.Location = new Point(3, 3);
+            mlvCursos.MinimumSize = new Size(200, 100);
+            mlvCursos.MouseLocation = new Point(-1, -1);
+            mlvCursos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            mlvCursos.Name = "mlvCursos";
+            mlvCursos.OwnerDraw = true;
+            mlvCursos.Size = new Size(766, 333);
+            mlvCursos.TabIndex = 0;
+            mlvCursos.UseCompatibleStateImageBehavior = false;
+            mlvCursos.View = View.Details;
+            mlvCursos.MouseDoubleClick += mlvCursos_MouseDoubleClick;
             // 
             // imageList1
             // 
@@ -307,7 +405,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(791, 497);
+            ClientSize = new Size(791, 481);
             Controls.Add(tabControlCadastroCursos);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tabControlCadastroCursos;
@@ -320,6 +418,8 @@
             tabControlCadastroCursos.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -337,5 +437,9 @@
         private ReaLTaiizor.Controls.MaterialButton BotaoSalvarCurso;
         private ReaLTaiizor.Controls.MaterialButton BotaoCancelarCurso;
         private ImageList imageList1;
+        private ReaLTaiizor.Controls.MaterialListView mlvCursos;
+        private ReaLTaiizor.Controls.MaterialButton BotaoDeNovoCurso;
+        private ReaLTaiizor.Controls.MaterialButton BotaoDeEditarCurso;
+        private ReaLTaiizor.Controls.MaterialButton BotaoDeExcluirCurso;
     }
 }

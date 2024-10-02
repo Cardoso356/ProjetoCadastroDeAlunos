@@ -97,10 +97,123 @@ namespace ProjetoCadastro
                 }
             }
         }
-        
+
+
+        public void CARREGAlistView()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            mlvCursos.Columns.Clear();
+            mlvCursos.Items.Clear();
+            mlvCursos.Columns.Add("Código");
+            mlvCursos.Columns.Add("Nome");
+            mlvCursos.Columns.Add("Nível");
+            mlvCursos.Columns.Add("Período");
+            mlvCursos.Columns.Add("Duração do Semestre");
+            mlvCursos.Columns.Add("Área");
+
+            string[] cursos = File.ReadAllLines(cursoFileName);
+
+            foreach (string curso in cursos)
+            {
+                var campos = curso.Split(';');
+                mlvCursos.Items.Add(new ListViewItem(campos));
+
+            }
+            mlvCursos.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            Cursor.Current = Cursors.Default;
+
+        }
+
         private void tabPage1_Click(object sender, EventArgs e)
         {
             //desconsidere
         }
+
+        private void BotaoCancelarCurso_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Atenção: Informações não salvas serão perdidas. \n\n" +
+            "Deseja cancelar ?", "Pergunta", MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                LimpaCampos();
+                tabControlCadastroCursos.SelectedIndex = 1;
+            }
+
+        }
+
+        private void tabPage2_Enter(object sender, EventArgs e)//página da consulta
+        {
+            CARREGAlistView();
+        }
+
+
+        public void Editar()
+        {
+            if (mlvCursos.SelectedIndices.Count > 0)
+            {
+                indexSelecionado = mlvCursos.SelectedItems[0].Index;
+                isAlteracao = true;
+                var item = mlvCursos.SelectedItems[0];
+                CampoCodigoCurso.Text = item.SubItems[0].Text;
+                CampoNomeCurso.Text = item.SubItems[1].Text;
+                CampoDeNivelDoCurso.Text = item.SubItems[2].Text;
+                CampoDePeriodoDoCurso.Text = item.SubItems[3].Text;
+                CampoDeDuracaoDoCurso.Text = item.SubItems[4].Text;
+                CampoDeAreaDoCurso.Text = item.SubItems[5].Text;
+                tabControlCadastroCursos.SelectedIndex = 0;
+                CampoCodigoCurso.Focus();
+
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum curso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void BotaoDeEditarCurso_Click(object sender, EventArgs e)
+        {
+            Editar();
+        }
+
+        private void mlvCursos_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Editar();
+        }
+
+        private void BotaoDeNovoCurso_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
+            tabControlCadastroCursos.SelectedIndex = 0;
+            CampoCodigoCurso.Focus();
+        }
+
+        public void Excluir()
+        {
+            List<string> cursos = File.ReadAllLines(cursoFileName).ToList();
+            cursos.RemoveAt(indexSelecionado);
+            File.WriteAllLines(cursoFileName, cursos);
+
+        }
+
+        private void BotaoDeExcluirCurso_Click(object sender, EventArgs e)
+        {
+            if (mlvCursos.SelectedIndices.Count > 0)
+            {
+                if (MessageBox.Show(this, "Deseja realmente deletar o curso selecionado ?",
+                    "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    indexSelecionado = mlvCursos.SelectedItems[0].Index;
+                    Excluir();
+                    CARREGAlistView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum curso!", "Atenção",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
     }
 }
