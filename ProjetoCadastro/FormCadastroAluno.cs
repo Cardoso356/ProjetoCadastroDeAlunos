@@ -207,7 +207,7 @@ namespace ProjetoCadastro
             else
             {
                 MessageBox.Show("Selecione algum aluno!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+
 
             }
 
@@ -258,9 +258,9 @@ namespace ProjetoCadastro
 
         private void botaoDeExcluir_Click(object sender, EventArgs e)
         {
-            if(mlvAlunos.SelectedIndices.Count > 0)
+            if (mlvAlunos.SelectedIndices.Count > 0)
             {
-                if(MessageBox.Show(this, "Deseja realmente deletar o aluno selecionado ?", 
+                if (MessageBox.Show(this, "Deseja realmente deletar o aluno selecionado ?",
                     "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     indexSelecionado = mlvAlunos.SelectedItems[0].Index;
@@ -270,10 +270,15 @@ namespace ProjetoCadastro
             }
             else
             {
-                MessageBox.Show("Selecione algum aluno!", "Atenção", 
+                MessageBox.Show("Selecione algum aluno!", "Atenção",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void mlvAlunos_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        {
+            Editar();
         }
     }
 }

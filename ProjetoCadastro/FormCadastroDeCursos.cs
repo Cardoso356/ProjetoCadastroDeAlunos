@@ -214,6 +214,9 @@ namespace ProjetoCadastro
             }
         }
 
-
+        private void mlvCursos_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        {
+            Editar();
+        }
     }
 }

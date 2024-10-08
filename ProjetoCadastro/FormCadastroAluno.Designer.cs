@@ -43,10 +43,10 @@
             txtNome = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtMatricula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tabPageConsulta = new TabPage();
+            mlvAlunos = new ListView();
             botaoDeNovoCadastro = new ReaLTaiizor.Controls.MaterialButton();
             botaoDeEditar = new ReaLTaiizor.Controls.MaterialButton();
             botaoDeExcluir = new ReaLTaiizor.Controls.MaterialButton();
-            mlvAlunos = new ReaLTaiizor.Controls.MaterialListView();
             imageList1 = new ImageList(components);
             tabControlCadastro.SuspendLayout();
             tabPageCadastro.SuspendLayout();
@@ -390,10 +390,10 @@
             // 
             // tabPageConsulta
             // 
+            tabPageConsulta.Controls.Add(mlvAlunos);
             tabPageConsulta.Controls.Add(botaoDeNovoCadastro);
             tabPageConsulta.Controls.Add(botaoDeEditar);
             tabPageConsulta.Controls.Add(botaoDeExcluir);
-            tabPageConsulta.Controls.Add(mlvAlunos);
             tabPageConsulta.ImageKey = "search.png";
             tabPageConsulta.Location = new Point(4, 31);
             tabPageConsulta.Name = "tabPageConsulta";
@@ -404,6 +404,17 @@
             tabPageConsulta.UseVisualStyleBackColor = true;
             tabPageConsulta.Click += tabPage2_Click;
             tabPageConsulta.Enter += tabPageConsulta_Enter;
+            // 
+            // mlvAlunos
+            // 
+            mlvAlunos.FullRowSelect = true;
+            mlvAlunos.Location = new Point(-4, 0);
+            mlvAlunos.Name = "mlvAlunos";
+            mlvAlunos.Size = new Size(761, 469);
+            mlvAlunos.TabIndex = 4;
+            mlvAlunos.UseCompatibleStateImageBehavior = false;
+            mlvAlunos.View = View.Details;
+            mlvAlunos.MouseDoubleClick += mlvAlunos_MouseDoubleClick_1;
             // 
             // botaoDeNovoCadastro
             // 
@@ -468,25 +479,6 @@
             botaoDeExcluir.UseVisualStyleBackColor = true;
             botaoDeExcluir.Click += botaoDeExcluir_Click;
             // 
-            // mlvAlunos
-            // 
-            mlvAlunos.AutoSizeTable = false;
-            mlvAlunos.BackColor = Color.FromArgb(255, 255, 255);
-            mlvAlunos.BorderStyle = BorderStyle.None;
-            mlvAlunos.Depth = 0;
-            mlvAlunos.FullRowSelect = true;
-            mlvAlunos.Location = new Point(3, 3);
-            mlvAlunos.MinimumSize = new Size(200, 100);
-            mlvAlunos.MouseLocation = new Point(-1, -1);
-            mlvAlunos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            mlvAlunos.Name = "mlvAlunos";
-            mlvAlunos.OwnerDraw = true;
-            mlvAlunos.Size = new Size(751, 453);
-            mlvAlunos.TabIndex = 0;
-            mlvAlunos.UseCompatibleStateImageBehavior = false;
-            mlvAlunos.View = View.Details;
-            mlvAlunos.MouseDoubleClick += mlvAlunos_MouseDoubleClick;
-            // 
             // imageList1
             // 
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
@@ -530,9 +522,9 @@
         private ReaLTaiizor.Controls.MaterialMaskedTextBox txtDataNascimento;
         private ReaLTaiizor.Controls.MaterialButton btnSalvar;
         private ReaLTaiizor.Controls.MaterialButton btnCancelar;
-        private ReaLTaiizor.Controls.MaterialListView mlvAlunos;
         private ReaLTaiizor.Controls.MaterialButton botaoDeNovoCadastro;
         private ReaLTaiizor.Controls.MaterialButton botaoDeEditar;
         private ReaLTaiizor.Controls.MaterialButton botaoDeExcluir;
+        private ListView mlvAlunos;
     }
 }
