@@ -162,7 +162,7 @@ namespace ProjetoCadastro
                 CampoDeAreaDoCurso.Text = item.SubItems[5].Text;
                 tabControlCadastroCursos.SelectedIndex = 0;
                 CampoCodigoCurso.Focus();
-
+                
             }
             else
             {
